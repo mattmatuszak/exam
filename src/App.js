@@ -47,9 +47,6 @@ class App extends Component {
                         : null
                     }
 
-                    <div className="row">
-                        <Header/>
-                    </div>
                     <Route path="/repos/:repoName" render={(props) => {
 
                         if (this.state.githubUser === null)
@@ -58,13 +55,18 @@ class App extends Component {
                         const repoToDisplay = this.state.githubUserRepos.filter((val) => {
                             return (props.match.params.repoName === val.name)
                         })
-                        console.log('App.render()', repoToDisplay);
+                        // console.log('App.render()', repoToDisplay);
 
                         return (
-                            <div className="gridContainer">
+                            <div>
                                 <div className="row">
-                                    <div className="small-12 columns">
-                                        <RepoDetail repoDetails={repoToDisplay[0]}/>
+                                    <Header showLinkToHome={true} />
+                                </div>
+                                <div className="gridContainer">
+                                    <div className="row">
+                                        <div className="small-12 columns">
+                                            <RepoDetail repoDetails={repoToDisplay[0]}/>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -72,18 +74,23 @@ class App extends Component {
                     }}/>
                     <Route exact path="/" render={(props) => {
                         return(
-                            <div className="gridContainer viewerContent">
+                            <div>
                                 <div className="row">
-                                    <div className="small-12">
-                                        <SearchForm searchGithubUsers={this.searchGithubUsers} githubUserFound={!(this.state.githubUser === null && this.state.searched)}/>
-                                    </div>
+                                    <Header showLinkToHome={false} />
                                 </div>
-                                {(this.state.searching)
-                                    ? <span className="loading-indicator small"></span>
-                                    : (this.state.searched && this.state.githubUser !== null)
-                                        ? <RepoContent githubUser={this.state.githubUser} gitHubUserRepos={this.state.githubUserRepos}/>
-                                        : null}
-                            </div>
+                                <div className="gridContainer viewerContent">
+                                    <div className="row">
+                                        <div className="small-12">
+                                            <SearchForm searchGithubUsers={this.searchGithubUsers} githubUserFound={!(this.state.githubUser === null && this.state.searched)}/>
+                                        </div>
+                                    </div>
+                                    {(this.state.searching)
+                                        ? <span className="loading-indicator small"></span>
+                                        : (this.state.searched && this.state.githubUser !== null)
+                                            ? <RepoContent githubUser={this.state.githubUser} gitHubUserRepos={this.state.githubUserRepos}/>
+                                            : null}
+                                </div>
+                        </div>
                         )
                     }} />
 

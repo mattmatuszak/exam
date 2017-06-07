@@ -10,7 +10,12 @@ const Header = (props) => {
             <div className="row">
                 <h1 className="small-8 columns">Github Viewer</h1>
                 <div className="small-4 columns valign-middle text-right">
-                    <Link to="/"><button className="tiny">Home</button></Link>
+                    {
+                        (props.showLinkToHome)
+                        ? <Link to="/"><button className="tiny">Home</button></Link>
+                        : null
+                    }
+
                 </div>
             </div>
             <hr/>
