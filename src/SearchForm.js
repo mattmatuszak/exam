@@ -30,12 +30,12 @@ class SearchForm extends Component {
                     ? (
                         <div data-notification className="notification-box alert">
                             Unknown username!
-                            <a href="#" className="close">×</a>
+                            {/* <a href="#" className="close">×</a> */}
                         </div>
                     )
                     : null
                 }
-                <p>Search repositories by username</p>
+                <h4 className="text-center text-center">Search repositories by username</h4>
                 <form onSubmit={this.submit}>
                     <input type='text' placeholder='username' name="username" onChange={this.formChange} />
                     <button type='submit' className="tiny expand" disabled={(this.state.username === '')}>Search</button>
