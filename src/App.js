@@ -13,7 +13,8 @@ import RepoDetail from './RepoDetail'
 class App extends Component {
 
     state = {
-          searched: false
+          searching: false
+        , searched: false
         , githubUser: null
         , githubUserRepos: []
     }
@@ -21,15 +22,17 @@ class App extends Component {
     searchGithubUsers = (formInputs) => {
         console.log('App.searchGithubUsers() formInputs', formInputs);
 
+        this.setState({searching: true})
+
         axios
             .get(`https://api.github.com/users/${formInputs.username}`)
             .then((response) => {
                 console.log('App.searchGithubUsers() response', response.data);
-                this.setState({githubUser: response.data, searched: true})
+                this.setState({githubUser: response.data, searched: true, searching: false})
             })
             .catch((error) => {
                 console.log('App.searchGithubUsers() response', error);
-                this.setState({githubUser: null, searched: true})
+                this.setState({githubUser: null, searched: true, searching: false})
             })
 
     }
@@ -51,9 +54,11 @@ class App extends Component {
                         </div>
                     </div>
                     {
-                        (this.state.searched && this.state.githubUser !== null)
-                        ? <RepoContent githubUser={this.state.githubUser} />
-                        : null
+                        (this.state.searching)
+                        ? <span className="loading-indicator small"></span>
+                        : (this.state.searched && this.state.githubUser !== null)
+                            ? <RepoContent githubUser={this.state.githubUser} />
+                            : null
                     }
                     {/* <div className="row">
                         <div className="row">
