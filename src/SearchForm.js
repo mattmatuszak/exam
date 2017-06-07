@@ -30,7 +30,6 @@ class SearchForm extends Component {
                     ? (
                         <div data-notification className="notification-box alert">
                             Unknown username!
-                            {/* <a href="#" className="close">×</a> */}
                         </div>
                     )
                     : null
