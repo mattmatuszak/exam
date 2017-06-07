@@ -1,6 +1,19 @@
 import React from 'react'
 
+import PropTypes from 'prop-types';
+
+
 const ReposList = (props) => {
+
+    const repoList = props.repos.map((repo, index) => {
+        return (
+            <tr key={index}>
+                <td>{repo.name}</td>
+            </tr>
+        )
+    })
+
+
     return (
         <div>
             <table className="table">
@@ -10,20 +23,16 @@ const ReposList = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>nw-exam</td>
-                    </tr>
-                    <tr>
-                        <td>counter</td>
-                    </tr>
-                    <tr>
-                        <td>hello_dojo</td>
-                    </tr>
+                    {repoList}
                 </tbody>
             </table>
 
         </div>
     )
+}
+
+ReposList.propTypes = {
+    repos: PropTypes.array.isRequired
 }
 
 export default ReposList;

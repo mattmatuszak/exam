@@ -12,7 +12,7 @@ class RepoContent extends Component {
                 <div className="row">
                     <div className="row">
                         <div className="small-12">
-                            <Repos githubUser={this.props.githubUser}/>
+                            <Repos githubUser={this.props.githubUser} gitHubUserRepos={this.props.gitHubUserRepos}/>
                         </div>
                     </div>
                 </div>
@@ -23,6 +23,7 @@ class RepoContent extends Component {
 
 RepoContent.propTypes = {
     githubUser: PropTypes.object.isRequired
+    , gitHubUserRepos: PropTypes.array.isRequired
 }
 
 export default RepoContent

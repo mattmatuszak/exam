@@ -6,16 +6,18 @@ import ReposFilter from './ReposFilter'
 import ReposList from './ReposList'
 
 const Repos = (props) => {
+
     return (
         <div>
             <ReposFilter githubUser={props.githubUser} />
-            <ReposList />
+            <ReposList repos={props.gitHubUserRepos} />
         </div>
     )
 }
 
 Repos.propTypes = {
     githubUser: PropTypes.object.isRequired
+    , gitHubUserRepos: PropTypes.array.isRequired
 }
 
 export default Repos;
