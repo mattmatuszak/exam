@@ -70,25 +70,23 @@ class App extends Component {
                             </div>
                         )
                     }}/>
-                    <div className="gridContainer viewerContent">
-                        <div className="row">
-                            <div className="small-12">
-                                <SearchForm searchGithubUsers={this.searchGithubUsers} githubUserFound={!(this.state.githubUser === null && this.state.searched)}/>
+                    <Route exact path="/" render={(props) => {
+                        return(
+                            <div className="gridContainer viewerContent">
+                                <div className="row">
+                                    <div className="small-12">
+                                        <SearchForm searchGithubUsers={this.searchGithubUsers} githubUserFound={!(this.state.githubUser === null && this.state.searched)}/>
+                                    </div>
+                                </div>
+                                {(this.state.searching)
+                                    ? <span className="loading-indicator small"></span>
+                                    : (this.state.searched && this.state.githubUser !== null)
+                                        ? <RepoContent githubUser={this.state.githubUser} gitHubUserRepos={this.state.githubUserRepos}/>
+                                        : null}
                             </div>
-                        </div>
-                        {(this.state.searching)
-                            ? <span className="loading-indicator small"></span>
-                            : (this.state.searched && this.state.githubUser !== null)
-                                ? <RepoContent githubUser={this.state.githubUser} gitHubUserRepos={this.state.githubUserRepos}/>
-                                : null}
-                        {/* <div className="row">
-                        <div className="row">
-                            <div className="small-12">
-                                <RepoDetail/>
-                            </div>
-                        </div>
-                    </div> */}
-                    </div>
+                        )
+                    }} />
+
 
                 </div>
             </Router>
