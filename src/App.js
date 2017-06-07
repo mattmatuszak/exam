@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import './App.css'
 
+import Header from './Header'
 import SearchForm from './SearchForm'
 import Repos from './Repos'
 import RepoDetail from './RepoDetail'
@@ -12,17 +13,28 @@ class App extends Component {
             <div className="App">
 
                 <div className="row">
-                    <h1>Github Viewer</h1>
-                    <hr/>
+                    <Header/>
                 </div>
-                <div className="row">
-                    <SearchForm/>
-                </div>
-                <div className="row">
-                    <Repos/>
-                </div>
-                <div className="row">
-                    <RepoDetail/>
+                <div className="gridContainer viewerContent">
+                    <div className="row">
+                        <div className="small-12">
+                            <SearchForm/>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="row">
+                            <div className="small-12">
+                                <Repos/>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="row">
+                            <div className="small-12">
+                                <RepoDetail/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>

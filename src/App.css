@@ -1,4 +1,10 @@
 .App {
     max-width: 1024px;
     margin: auto;
+    padding: 50px;
+}
+
+.viewerContent {
+    max-width: 70%;
+    margin: auto;
 }
