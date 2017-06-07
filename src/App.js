@@ -6,8 +6,9 @@ import axios from 'axios'
 
 import Header from './Header'
 import SearchForm from './SearchForm'
-import Repos from './Repos'
+import RepoContent from './RepoContent'
 import RepoDetail from './RepoDetail'
+
 
 class App extends Component {
 
@@ -49,20 +50,18 @@ class App extends Component {
                                 githubUserFound={!(this.state.githubUser === null && this.state.searched)} />
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="row">
-                            <div className="small-12">
-                                <Repos/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
+                    {
+                        (this.state.searched && this.state.githubUser !== null)
+                        ? <RepoContent />
+                        : null
+                    }
+                    {/* <div className="row">
                         <div className="row">
                             <div className="small-12">
                                 <RepoDetail/>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
             </div>
