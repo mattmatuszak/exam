@@ -14,7 +14,7 @@ const ReposFilter = (props) => {
         <div>
             <h2 className="text-center">{props.githubUser.login} repositories</h2>
             <p className="text-center">Filter repos by primary language</p>
-            <select>
+            <select onChange={props.filterRepos}>
                 {languages}
             </select>
         </div>
