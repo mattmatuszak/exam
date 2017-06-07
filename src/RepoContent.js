@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import PropTypes from 'prop-types';
+
 import Repos from './Repos'
 
 class RepoContent extends Component {
@@ -10,13 +12,17 @@ class RepoContent extends Component {
                 <div className="row">
                     <div className="row">
                         <div className="small-12">
-                            <Repos/>
+                            <Repos githubUser={this.props.githubUser}/>
                         </div>
                     </div>
                 </div>
             </div>
         )
     }
+}
+
+RepoContent.propTypes = {
+    githubUser: PropTypes.object.isRequired
 }
 
 export default RepoContent

@@ -1,10 +1,13 @@
 import React from 'react'
 
 
+
+
+
 const RepoDetail = (props) => {
     return (
         <div>
-            <h2>hello_dojo details</h2>
+            <h2>{this.props.githubUser.login} details</h2>
             <table className="table">
                 <thead>
                     <tr>
@@ -24,5 +27,7 @@ const RepoDetail = (props) => {
         </div>
     )
 }
+
+
 
 export default RepoDetail;

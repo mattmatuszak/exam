@@ -52,7 +52,7 @@ class App extends Component {
                     </div>
                     {
                         (this.state.searched && this.state.githubUser !== null)
-                        ? <RepoContent />
+                        ? <RepoContent githubUser={this.state.githubUser} />
                         : null
                     }
                     {/* <div className="row">
