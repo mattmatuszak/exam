@@ -19,7 +19,6 @@ class SearchForm extends Component {
 
     submit = (event) => {
         event.preventDefault()
-        // console.log('submitted')
         this.props.searchGithubUsers(this.state)
     }
 

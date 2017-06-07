@@ -21,7 +21,7 @@ class App extends Component {
     }
 
     searchGithubUsers = (formInputs) => {
-        console.log('App.searchGithubUsers() formInputs', formInputs);
+        // console.log('App.searchGithubUsers() formInputs', formInputs);
 
         this.setState({searching: true})
 

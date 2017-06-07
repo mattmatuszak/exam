@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
-import ReposFilter from './ReposFilter'
-import ReposList from './ReposList'
+import PropTypes from 'prop-types';
 
 const Header = (props) => {
     return (
@@ -21,6 +19,10 @@ const Header = (props) => {
             <hr/>
         </div>
     )
+}
+
+Header.propTypes = {
+    showLinkToHome: PropTypes.bool.isRequired
 }
 
 export default Header;

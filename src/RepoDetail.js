@@ -1,8 +1,5 @@
 import React from 'react'
-
-
-
-
+import PropTypes from 'prop-types';
 
 const RepoDetail = (props) => {
     return (
@@ -28,6 +25,8 @@ const RepoDetail = (props) => {
     )
 }
 
-
+RepoDetail.propTypes = {
+    repoDetails: PropTypes.object.isRequired
+}
 
 export default RepoDetail;
