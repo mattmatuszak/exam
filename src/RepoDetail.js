@@ -7,7 +7,7 @@ import React from 'react'
 const RepoDetail = (props) => {
     return (
         <div>
-            <h2>{this.props.githubUser.login} details</h2>
+            <h2>{props.repoDetails.name} details</h2>
             <table className="table">
                 <thead>
                     <tr>
@@ -18,9 +18,9 @@ const RepoDetail = (props) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>32</td>
-                        <td>6</td>
-                        <td>JavaScript</td>
+                        <td>{props.repoDetails.stargazers_count}</td>
+                        <td>{props.repoDetails.forks_count}</td>
+                        <td>{props.repoDetails.language}</td>
                     </tr>
                 </tbody>
             </table>

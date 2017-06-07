@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import PropTypes from 'prop-types';
 
@@ -8,7 +9,7 @@ const ReposList = (props) => {
     const repoList = props.repos.map((repo, index) => {
         return (
             <tr key={index}>
-                <td>{repo.name}</td>
+                <td><Link to={`/repos/${repo.name}`}>{repo.name}</Link></td>
             </tr>
         )
     })
