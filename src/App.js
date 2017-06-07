@@ -31,9 +31,6 @@ class App extends Component {
         Promise
             .all([githubUserDetails, githubUserRepos])
             .then(githubResponses => {
-                // console.log('App.searchGithubUsers() response', githubResponses);
-                // console.log('App.searchGithubUsers() response 0', githubResponses[0].data);
-                // console.log('App.searchGithubUsers() response 1', githubResponses[1].data);
                 this.setState({
                     githubUser: githubResponses[0].data
                     , githubUserRepos: githubResponses[1].data
@@ -44,17 +41,6 @@ class App extends Component {
             .catch(error => {
                 this.setState({githubUser: null, githubUserRepos:[], searched: true, searching: false})
             })
-
-        // axios
-        //     .get(`https://api.github.com/users/${formInputs.username}`)
-        //     .then((response) => {
-        //         console.log('App.searchGithubUsers() response', response.data);
-        //         this.setState({githubUser: response.data, searched: true, searching: false})
-        //     })
-        //     .catch((error) => {
-        //         console.log('App.searchGithubUsers() response', error);
-        //         this.setState({githubUser: null, searched: true, searching: false})
-        //     })
 
     }
 
